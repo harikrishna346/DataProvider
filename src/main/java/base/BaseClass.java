@@ -2,16 +2,21 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
-public class BaseClass {
+public class BaseClass
+
+{
 
     protected  WebDriver driver;
 
     @BeforeMethod
-    public void setup() {
+    public void setup()
+
+    {
 
         driver = new ChromeDriver();
 
@@ -24,5 +29,19 @@ public class BaseClass {
         System.out.println("To Launch the application");
 
 
-}
-}
+    }
+
+    @AfterMethod
+    public void tearDown()
+    {
+        if (driver != null)
+        {
+            driver.quit();
+
+        }
+
+    }
+
+
+    }
+
